@@ -5,7 +5,7 @@ import { MusicPlayerContext } from "../contexts/MusicPlayerContext";
 const useMusicPlayer = () => {
   const { state, setState } = useContext(MusicPlayerContext);
 
-  // Play a specific track
+
   function playTrack(index) {
     if (index === state.currentTrackIndex) {
       togglePlay();
@@ -25,7 +25,7 @@ const useMusicPlayer = () => {
     }
   }
 
-  // Toggle play or pause
+
   function togglePlay() {
     if (state.isPlaying) {
       state.audioPlayer.pause();
@@ -35,7 +35,7 @@ const useMusicPlayer = () => {
     setState((state) => ({ ...state, isPlaying: !state.isPlaying }));
   }
 
-  // Play the previous track in the tracks array
+
   function playPreviousTrack() {
     const newIndex =
       (((state.currentTrackIndex + -1) % state.tracks.length) +
@@ -44,7 +44,7 @@ const useMusicPlayer = () => {
     playTrack(newIndex);
   }
 
-  // Play the next track in the tracks array
+
   function playNextTrack() {
     const newIndex = (state.currentTrackIndex + 1) % state.tracks.length;
     playTrack(newIndex);
